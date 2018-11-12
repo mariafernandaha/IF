@@ -1,9 +1,16 @@
 package saraefernanda;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Equipamento {
+	
+	@Id
+	private int id_equ;
 	@Override
 	public String toString() {
-		return "Equipamento [medicamentos=" + medicamentos + ", curativos=" + curativos + "]";
+		return "Equipamento [id_equ=" + id_equ + ", medicamentos=" + medicamentos + ", curativos=" + curativos + "]";
 	}
 	public Equipamento(String medicamentos, String curativos) {
 		super();
@@ -53,6 +60,12 @@ public class Equipamento {
 	}
 	public void setCurativos(String curativos) {
 		this.curativos = curativos;
+	}
+	public int getId_equ() {
+		return id_equ;
+	}
+	public void setId_equ(int id_equ) {
+		this.id_equ = id_equ;
 	}
 	
 

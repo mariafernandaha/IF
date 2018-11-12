@@ -1,6 +1,19 @@
 package saraefernanda;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Paciente {
+	
+	public int getId_pac() {
+		return id_pac;
+	}
+	public void setId_pac(int id_pac) {
+		this.id_pac = id_pac;
+	}
+	@Id
+	private int id_pac;
 	private int cpf;
 	private int nSus;
 	private String nome;
@@ -15,7 +28,8 @@ public class Paciente {
 	}
 	@Override
 	public String toString() {
-		return "Paciente [cpf=" + cpf + ", nSus=" + nSus + ", nome=" + nome + ", endereco=" + endereco + "]";
+		return "Paciente [id_pac=" + id_pac + ", cpf=" + cpf + ", nSus=" + nSus + ", nome=" + nome + ", endereco="
+				+ endereco + "]";
 	}
 	public int getCpf() {
 		return cpf;
@@ -47,6 +61,7 @@ public class Paciente {
 		int result = 1;
 		result = prime * result + cpf;
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
+		result = prime * result + id_pac;
 		result = prime * result + nSus;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
@@ -66,6 +81,8 @@ public class Paciente {
 			if (other.endereco != null)
 				return false;
 		} else if (!endereco.equals(other.endereco))
+			return false;
+		if (id_pac != other.id_pac)
 			return false;
 		if (nSus != other.nSus)
 			return false;

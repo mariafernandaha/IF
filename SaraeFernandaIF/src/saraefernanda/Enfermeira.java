@@ -1,6 +1,13 @@
 package saraefernanda;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Enfermeira {
+	
+	@Id
+	private int id_enf; 
 	private String analiseUrgencia; 
 	private String encaminhamento;
 	private NivelGravidade nivelGravidade;
@@ -10,6 +17,19 @@ public class Enfermeira {
 	}
 	public void setAnaliseUrgencia(String analiseUrgencia) {
 		this.analiseUrgencia = analiseUrgencia;
+	}
+	public Enfermeira(int id_enf, String analiseUrgencia, String encaminhamento, NivelGravidade nivelGravidade) {
+		super();
+		this.id_enf = id_enf;
+		this.analiseUrgencia = analiseUrgencia;
+		this.encaminhamento = encaminhamento;
+		this.nivelGravidade = nivelGravidade;
+	}
+	public int getId_enf() {
+		return id_enf;
+	}
+	public void setId_enf(int id_enf) {
+		this.id_enf = id_enf;
 	}
 	public String getEncaminhamento() {
 		return encaminhamento;
@@ -30,6 +50,7 @@ public class Enfermeira {
 		int result = 1;
 		result = prime * result + ((analiseUrgencia == null) ? 0 : analiseUrgencia.hashCode());
 		result = prime * result + ((encaminhamento == null) ? 0 : encaminhamento.hashCode());
+		result = prime * result + id_enf;
 		result = prime * result + ((nivelGravidade == null) ? 0 : nivelGravidade.hashCode());
 		return result;
 	}
@@ -52,6 +73,8 @@ public class Enfermeira {
 				return false;
 		} else if (!encaminhamento.equals(other.encaminhamento))
 			return false;
+		if (id_enf != other.id_enf)
+			return false;
 		if (nivelGravidade == null) {
 			if (other.nivelGravidade != null)
 				return false;
@@ -61,8 +84,10 @@ public class Enfermeira {
 	}
 	@Override
 	public String toString() {
-		return "Enfermeira [analiseUrgencia=" + analiseUrgencia + ", encaminhamento=" + encaminhamento
-				+ ", nivelGravidade=" + nivelGravidade + "]";
+		return "Enfermeira [id_enf=" + id_enf + ", analiseUrgencia=" + analiseUrgencia + ", encaminhamento="
+				+ encaminhamento + ", nivelGravidade=" + nivelGravidade + ", getAnaliseUrgencia()="
+				+ getAnaliseUrgencia() + ", getId_enf()=" + getId_enf() + ", getEncaminhamento()=" + getEncaminhamento()
+				+ ", hashCode()=" + hashCode() + ", getNivelGravidade()=" + getNivelGravidade() + "]";
 	}
 
 	public NivelGravidade getNivelGravidade() {

@@ -2,10 +2,30 @@ package saraefernanda;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+ @Entity 
 public class Hospital {
+	 
+	 @Id
+    private int id_hos;
 	private String tipoUrgencia;
 	private String especialidade;
 	ArrayList <Equipamento> equipamentos;
+	
+	 public int getId_hos() {
+		return id_hos;
+	}
+	public void setId_hos(int id_hos) {
+		this.id_hos = id_hos;
+	}
+	public ArrayList<Equipamento> getEquipamentos() {
+		return equipamentos;
+	}
+	public void setEquipamentos(ArrayList<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
+	}
 	
 	@Override
 	public int hashCode() {

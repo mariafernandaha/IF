@@ -1,6 +1,13 @@
 package saraefernanda;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class NivelGravidade {
+	
+	@Id
+	private int id_gra;
 	private String naoUrgente;
 	private String poucoUrgente;
 	private String urgente;

@@ -2,7 +2,26 @@ package saraefernanda;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Posto {
+	
+	public int getId_pos() {
+		return id_pos;
+	}
+	public void setId_pos(int id_pos) {
+		this.id_pos = id_pos;
+	}
+	public ArrayList<Equipamento> getEquipamentos() {
+		return equipamentos;
+	}
+	public void setEquipamentos(ArrayList<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
+	}
+	@Id
+	private int id_pos;
 	private String tipoUrgencia;
 	private String especialidade;
 	ArrayList <Equipamento> equipamentos;
@@ -13,6 +32,7 @@ public class Posto {
 		int result = 1;
 		result = prime * result + ((equipamentos == null) ? 0 : equipamentos.hashCode());
 		result = prime * result + ((especialidade == null) ? 0 : especialidade.hashCode());
+		result = prime * result + id_pos;
 		result = prime * result + ((tipoUrgencia == null) ? 0 : tipoUrgencia.hashCode());
 		return result;
 	}
@@ -34,6 +54,8 @@ public class Posto {
 			if (other.especialidade != null)
 				return false;
 		} else if (!especialidade.equals(other.especialidade))
+			return false;
+		if (id_pos != other.id_pos)
 			return false;
 		if (tipoUrgencia == null) {
 			if (other.tipoUrgencia != null)

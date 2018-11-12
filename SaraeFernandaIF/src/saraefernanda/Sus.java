@@ -2,7 +2,13 @@ package saraefernanda;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Sus {
+	@Id
+	private int id_sus;
 	private String endereco;
 	private String tipoConsulta;
 	private int id_s;

@@ -1,6 +1,21 @@
 package saraefernanda;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Laboratorio {
+	
+	@Id
+	private int id_lab;
+	public int getId_lab() {
+		return id_lab;
+	}
+
+	public void setId_lab(int id_lab) {
+		this.id_lab = id_lab;
+	}
+
 	private String exames;
 
 	public String getExames() {

@@ -1,6 +1,21 @@
 package saraefernanda;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Maternidade {
+	
+	@Id
+	private int id_mat;
+	public int getId_mat() {
+		return id_mat;
+	}
+
+	public void setId_mat(int id_mat) {
+		this.id_mat = id_mat;
+	}
+
 	private String partos;
 
 	public String getPartos() {
@@ -13,7 +28,7 @@ public class Maternidade {
 
 	@Override
 	public String toString() {
-		return "Maternidade [partos=" + partos + "]";
+		return "Maternidade [id_mat=" + id_mat + ", partos=" + partos + "]";
 	}
 
 	public Maternidade(String partos) {
