@@ -38,12 +38,7 @@ public class Enfermeira {
 		this.encaminhamento = encaminhamento;
 	}
 	
-	public Enfermeira(String analiseUrgencia, String encaminhamento, NivelGravidade nivelGravidade) {
-		super();
-		this.analiseUrgencia = analiseUrgencia;
-		this.encaminhamento = encaminhamento;
-		this.nivelGravidade = nivelGravidade;
-	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,6 +49,7 @@ public class Enfermeira {
 		result = prime * result + ((nivelGravidade == null) ? 0 : nivelGravidade.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -82,12 +78,11 @@ public class Enfermeira {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Enfermeira [id_enf=" + id_enf + ", analiseUrgencia=" + analiseUrgencia + ", encaminhamento="
-				+ encaminhamento + ", nivelGravidade=" + nivelGravidade + ", getAnaliseUrgencia()="
-				+ getAnaliseUrgencia() + ", getId_enf()=" + getId_enf() + ", getEncaminhamento()=" + getEncaminhamento()
-				+ ", hashCode()=" + hashCode() + ", getNivelGravidade()=" + getNivelGravidade() + "]";
+				+ encaminhamento + ", nivelGravidade=" + nivelGravidade + "]";
 	}
 
 	public NivelGravidade getNivelGravidade() {
