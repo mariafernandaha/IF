@@ -2,22 +2,28 @@ package saraefernanda;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Paciente {
 	
+	@Id
+	private int id_pac;
+	
+	private int cpf;
+	
+	@OneToMany(mappedBy= "id_sus")
+	private int nSus;
+	
+	private String nome;
+	private String endereco;
 	public int getId_pac() {
 		return id_pac;
 	}
 	public void setId_pac(int id_pac) {
 		this.id_pac = id_pac;
 	}
-	@Id
-	private int id_pac;
-	private int cpf;
-	private int nSus;
-	private String nome;
-	private String endereco;
+
 	
 	public Paciente(int cpf, int nSus, String nome, String endereco) {
 		super();
@@ -27,7 +33,9 @@ public class Paciente {
 		this.endereco = endereco;
 	}
 	@Override
+	
 	public String toString() {
+		
 		return "Paciente [id_pac=" + id_pac + ", cpf=" + cpf + ", nSus=" + nSus + ", nome=" + nome + ", endereco="
 				+ endereco + "]";
 	}
@@ -56,7 +64,9 @@ public class Paciente {
 		this.endereco = endereco;
 	}
 	@Override
+	
 	public int hashCode() {
+		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + cpf;
@@ -67,7 +77,9 @@ public class Paciente {
 		return result;
 	}
 	@Override
+	
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)

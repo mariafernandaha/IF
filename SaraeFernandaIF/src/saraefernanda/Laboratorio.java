@@ -8,6 +8,9 @@ public class Laboratorio {
 	
 	@Id
 	private int id_lab;
+	
+	private String exames;
+
 	public int getId_lab() {
 		return id_lab;
 	}
@@ -16,8 +19,7 @@ public class Laboratorio {
 		this.id_lab = id_lab;
 	}
 
-	private String exames;
-
+	
 	public String getExames() {
 		return exames;
 	}
@@ -28,12 +30,16 @@ public class Laboratorio {
 	}
 
 	@Override
+	
 	public String toString() {
+		
 		return "Laboratorio [exames=" + exames + "]";
 	}
 
 	@Override
+	
 	public int hashCode() {
+		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((exames == null) ? 0 : exames.hashCode());
@@ -41,7 +47,9 @@ public class Laboratorio {
 	}
 
 	@Override
+	
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)

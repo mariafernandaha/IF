@@ -1,12 +1,27 @@
 package saraefernanda;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Posto {
+	
+	@Id
+	private int id_pos;
+	
+	private String tipoUrgencia;
+	private String especialidade;
+	@ManyToMany()
+	@JoinTable(
+			name = "pos_equ", 
+			joinColumns = @JoinColumn(name = "id_pos"), 
+			inverseJoinColumns = @JoinColumn(name = "id_equ"))
+	private Set<Equipamento> equipamentos ;
 	
 	public int getId_pos() {
 		return id_pos;
@@ -14,20 +29,17 @@ public class Posto {
 	public void setId_pos(int id_pos) {
 		this.id_pos = id_pos;
 	}
-	public ArrayList<Equipamento> getEquipamentos() {
+	public Set<Equipamento> getEquipamentos() {
 		return equipamentos;
 	}
-	public void setEquipamentos(ArrayList<Equipamento> equipamentos) {
+	public void setEquipamentos(Set<Equipamento> equipamentos) {
 		this.equipamentos = equipamentos;
 	}
-	@Id
-	private int id_pos;
-	private String tipoUrgencia;
-	private String especialidade;
-	ArrayList <Equipamento> equipamentos;
+
+	@Override 
 	
-	@Override
 	public int hashCode() {
+		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((equipamentos == null) ? 0 : equipamentos.hashCode());
@@ -37,7 +49,9 @@ public class Posto {
 		return result;
 	}
 	@Override
+	
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -64,13 +78,16 @@ public class Posto {
 			return false;
 		return true;
 	}
+	
 	public Posto(String tipoUrgencia, String especialidade) {
 		super();
 		this.tipoUrgencia = tipoUrgencia;
 		this.especialidade = especialidade;
 	}
 	@Override
+	
 	public String toString() {
+		
 		return "Posto [tipoUrgencia=" + tipoUrgencia + ", especialidade=" + especialidade + "]";
 	}
 	public String getTipoUrgencia() {

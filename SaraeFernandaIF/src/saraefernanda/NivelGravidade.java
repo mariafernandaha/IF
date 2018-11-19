@@ -8,13 +8,16 @@ public class NivelGravidade {
 	
 	@Id
 	private int id_gra;
+	
 	private String naoUrgente;
 	private String poucoUrgente;
 	private String urgente;
 	private String emergencia;
 	
 	@Override
+	
 	public int hashCode() {
+		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((emergencia == null) ? 0 : emergencia.hashCode());
@@ -24,7 +27,9 @@ public class NivelGravidade {
 		return result;
 	}
 	@Override
+	
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -54,7 +59,9 @@ public class NivelGravidade {
 			return false;
 		return true;
 	}
+	
 	public String getNaoUrgente() {
+		
 		return naoUrgente;
 	}
 	public void setNaoUrgente(String naoUrgente) {

@@ -8,6 +8,7 @@ public class Maternidade {
 	
 	@Id
 	private int id_mat;
+	
 	public int getId_mat() {
 		return id_mat;
 	}
@@ -27,7 +28,9 @@ public class Maternidade {
 	}
 
 	@Override
+	
 	public String toString() {
+		
 		return "Maternidade [id_mat=" + id_mat + ", partos=" + partos + "]";
 	}
 
@@ -37,7 +40,9 @@ public class Maternidade {
 	}
 
 	@Override
+	
 	public int hashCode() {
+		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((partos == null) ? 0 : partos.hashCode());
@@ -45,7 +50,9 @@ public class Maternidade {
 	}
 
 	@Override
+	
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)

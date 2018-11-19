@@ -8,23 +8,28 @@ public class Enfermeira {
 	
 	@Id
 	private int id_enf; 
+	 
 	private String analiseUrgencia; 
 	private String encaminhamento;
 	private NivelGravidade nivelGravidade;
+	
 	
 	public String getAnaliseUrgencia() {
 		return analiseUrgencia;
 	}
 	public void setAnaliseUrgencia(String analiseUrgencia) {
+		
 		this.analiseUrgencia = analiseUrgencia;
 	}
 	public Enfermeira(int id_enf, String analiseUrgencia, String encaminhamento, NivelGravidade nivelGravidade) {
+		
 		super();
 		this.id_enf = id_enf;
 		this.analiseUrgencia = analiseUrgencia;
 		this.encaminhamento = encaminhamento;
 		this.nivelGravidade = nivelGravidade;
 	}
+	
 	public int getId_enf() {
 		return id_enf;
 	}
@@ -40,7 +45,9 @@ public class Enfermeira {
 	
 	
 	@Override
+	
 	public int hashCode() {
+		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((analiseUrgencia == null) ? 0 : analiseUrgencia.hashCode());
@@ -51,7 +58,9 @@ public class Enfermeira {
 	}
 	
 	@Override
+	
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -80,7 +89,9 @@ public class Enfermeira {
 	}
 	
 	@Override
+	
 	public String toString() {
+		
 		return "Enfermeira [id_enf=" + id_enf + ", analiseUrgencia=" + analiseUrgencia + ", encaminhamento="
 				+ encaminhamento + ", nivelGravidade=" + nivelGravidade + "]";
 	}
