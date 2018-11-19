@@ -80,10 +80,12 @@ public class Posto {
 	}
 	
 	public Posto(String tipoUrgencia, String especialidade) {
+		
 		super();
 		this.tipoUrgencia = tipoUrgencia;
 		this.especialidade = especialidade;
 	}
+	
 	@Override
 	
 	public String toString() {

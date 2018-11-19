@@ -3,6 +3,7 @@ package saraefernanda;
 import java.util.ArrayList;
 
 public interface ImplSus {
+	
 	public Paciente addpaciente (String nome, String endereco,int cpf, int nSus, int id_pac);
 	
 	public void removepaciente (String nome);

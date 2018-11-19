@@ -20,6 +20,10 @@ public class Equipamento {
 	@JoinColumn(name="id_equipamentos")
 	private ArrayList <Hospital> equipamentos;
 	
+	@ManyToOne
+	@JoinColumn(name="id_equipamentos")
+	private ArrayList <Posto> equipamentos1;
+	
 	@Override
 	
 	public String toString() {

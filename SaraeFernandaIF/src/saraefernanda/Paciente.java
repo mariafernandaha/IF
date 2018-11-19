@@ -1,8 +1,12 @@
 package saraefernanda;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Paciente {
@@ -10,11 +14,15 @@ public class Paciente {
 	@Id
 	private int id_pac;
 	
-	private int cpf;
+	@ManyToMany()
+	@JoinTable(
+			name = "enf_pac", 
+			joinColumns = @JoinColumn(name = "id_enf"), 
+			inverseJoinColumns = @JoinColumn(name = "id_pac"))
+	private Set<Paciente> enfermeira;
 	
-	@OneToMany(mappedBy= "id_sus")
+	private int cpf;	
 	private int nSus;
-	
 	private String nome;
 	private String endereco;
 	public int getId_pac() {

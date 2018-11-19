@@ -1,13 +1,25 @@
 package saraefernanda;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
  @Entity 
 public class Hospital {
 	 
 	@Id
     private int id_hos;
+	
+	@ManyToOne
+	@JoinColumn(name="id_hospital")
+	private ArrayList <Maternidade> hospital;
+	
+	@ManyToOne
+	@JoinColumn(name="id_hospital")
+	private ArrayList <Laboratorio> hospital1;
 	
 	private String tipoUrgencia;
 	private String especialidade;

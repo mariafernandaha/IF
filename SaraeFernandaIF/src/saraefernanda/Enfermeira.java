@@ -1,7 +1,12 @@
 package saraefernanda;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Enfermeira {
@@ -9,14 +14,30 @@ public class Enfermeira {
 	@Id
 	private int id_enf; 
 	 
+	@ManyToMany()
+	@JoinTable(
+			name = "enf_pos", 
+			joinColumns = @JoinColumn(name = "id_enf"), 
+			inverseJoinColumns = @JoinColumn(name = "id_pos"))
+	private Set<Posto> posto;
+	
+	@ManyToMany()
+	@JoinTable(
+			name = "enf_hos", 
+			joinColumns = @JoinColumn(name = "id_enf"), 
+			inverseJoinColumns = @JoinColumn(name = "id_hos"))
+	private Set<Hospital> hospital;
+	
 	private String analiseUrgencia; 
 	private String encaminhamento;
 	private NivelGravidade nivelGravidade;
 	
 	
 	public String getAnaliseUrgencia() {
+		
 		return analiseUrgencia;
 	}
+	
 	public void setAnaliseUrgencia(String analiseUrgencia) {
 		
 		this.analiseUrgencia = analiseUrgencia;

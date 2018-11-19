@@ -1,13 +1,24 @@
 package saraefernanda;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class NivelGravidade {
 	
 	@Id
 	private int id_gra;
+	@ManyToMany()
+	@JoinTable(
+			name = "gra_enf", 
+			joinColumns = @JoinColumn(name = "id_gra"), 
+			inverseJoinColumns = @JoinColumn(name = "id_enf"))
+	private Set<NivelGravidade> enfermeira;
 	
 	private String naoUrgente;
 	private String poucoUrgente;
