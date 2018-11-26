@@ -7,49 +7,37 @@ import javax.persistence.Id;
 public class Laboratorio {
 	
 	@Id
-	private int id_lab;
+	private Long id_lab;
 	
 	private String exames;
 
-	public int getId_lab() {
+	public Long getId_lab() {
 		return id_lab;
 	}
 
-	public void setId_lab(int id_lab) {
+	public void setId_lab(Long id_lab) {
 		this.id_lab = id_lab;
 	}
 
-	
 	public String getExames() {
 		return exames;
 	}
 
-	public Laboratorio(String exames) {
-		super();
+	public void setExames(String exames) {
 		this.exames = exames;
 	}
 
 	@Override
-	
-	public String toString() {
-		
-		return "Laboratorio [exames=" + exames + "]";
-	}
-
-	@Override
-	
 	public int hashCode() {
-		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((exames == null) ? 0 : exames.hashCode());
+		result = prime * result + ((id_lab == null) ? 0 : id_lab.hashCode());
 		return result;
 	}
 
 	@Override
-	
 	public boolean equals(Object obj) {
-		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -62,12 +50,23 @@ public class Laboratorio {
 				return false;
 		} else if (!exames.equals(other.exames))
 			return false;
+		if (id_lab == null) {
+			if (other.id_lab != null)
+				return false;
+		} else if (!id_lab.equals(other.id_lab))
+			return false;
 		return true;
 	}
 
-	public void setExames(String exames) {
+	@Override
+	public String toString() {
+		return "Laboratorio [id_lab=" + id_lab + ", exames=" + exames + "]";
+	}
+
+	public Laboratorio(Long id_lab, String exames) {
+		super();
+		this.id_lab = id_lab;
 		this.exames = exames;
 	}
-	
 
-}
+}	

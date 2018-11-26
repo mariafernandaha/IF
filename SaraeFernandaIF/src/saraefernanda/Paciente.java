@@ -10,9 +10,8 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Paciente {
-	
 	@Id
-	private int id_pac;
+	private Long id_pac;
 	
 	@ManyToMany()
 	@JoinTable(
@@ -25,23 +24,11 @@ public class Paciente {
 	private int nSus;
 	private String nome;
 	private String endereco;
-	public int getId_pac() {
-		return id_pac;
-	}
-	public void setId_pac(int id_pac) {
-		this.id_pac = id_pac;
-	}
 
 	
-	public Paciente(int cpf, int nSus, String nome, String endereco) {
-		super();
-		this.cpf = cpf;
-		this.nSus = nSus;
-		this.nome = nome;
-		this.endereco = endereco;
-	}
+	
 	public Paciente() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 	@Override
 	
@@ -75,22 +62,19 @@ public class Paciente {
 		this.endereco = endereco;
 	}
 	@Override
-	
 	public int hashCode() {
-		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + cpf;
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
-		result = prime * result + id_pac;
+		result = prime * result + ((enfermeira == null) ? 0 : enfermeira.hashCode());
+		result = prime * result + ((id_pac == null) ? 0 : id_pac.hashCode());
 		result = prime * result + nSus;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 	@Override
-	
 	public boolean equals(Object obj) {
-		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -105,7 +89,15 @@ public class Paciente {
 				return false;
 		} else if (!endereco.equals(other.endereco))
 			return false;
-		if (id_pac != other.id_pac)
+		if (enfermeira == null) {
+			if (other.enfermeira != null)
+				return false;
+		} else if (!enfermeira.equals(other.enfermeira))
+			return false;
+		if (id_pac == null) {
+			if (other.id_pac != null)
+				return false;
+		} else if (!id_pac.equals(other.id_pac))
 			return false;
 		if (nSus != other.nSus)
 			return false;
@@ -116,6 +108,20 @@ public class Paciente {
 			return false;
 		return true;
 	}
+	public Long getId_pac() {
+		return id_pac;
+	}
+	public void setId_pac(Long id_pac) {
+		this.id_pac = id_pac;
+	}
+	public Set<Paciente> getEnfermeira() {
+		return enfermeira;
+	}
+	public void setEnfermeira(Set<Paciente> enfermeira) {
+		this.enfermeira = enfermeira;
+	}
+	
+
 	
 
 }

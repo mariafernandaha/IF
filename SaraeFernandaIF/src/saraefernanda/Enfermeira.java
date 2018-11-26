@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 public class Enfermeira {
 	
 	@Id
-	private int id_enf; 
+	private Long id_enf; 
 	 
 	@ManyToMany()
 	@JoinTable(
@@ -31,31 +31,34 @@ public class Enfermeira {
 	private String analiseUrgencia; 
 	private String encaminhamento;
 	private NivelGravidade nivelGravidade;
-	
-	
-	public String getAnaliseUrgencia() {
-		
-		return analiseUrgencia;
+	@Override
+	public String toString() {
+		return "Enfermeira [id_enf=" + id_enf + ", posto=" + posto + ", hospital=" + hospital + ", analiseUrgencia="
+				+ analiseUrgencia + ", encaminhamento=" + encaminhamento + ", nivelGravidade=" + nivelGravidade + "]";
 	}
-	
-	public void setAnaliseUrgencia(String analiseUrgencia) {
-		
-		this.analiseUrgencia = analiseUrgencia;
-	}
-	public Enfermeira(int id_enf, String analiseUrgencia, String encaminhamento, NivelGravidade nivelGravidade) {
-		
-		super();
-		this.id_enf = id_enf;
-		this.analiseUrgencia = analiseUrgencia;
-		this.encaminhamento = encaminhamento;
-		this.nivelGravidade = nivelGravidade;
-	}
-	
-	public int getId_enf() {
+	public Long getId_enf() {
 		return id_enf;
 	}
-	public void setId_enf(int id_enf) {
+	public void setId_enf(Long id_enf) {
 		this.id_enf = id_enf;
+	}
+	public Set<Posto> getPosto() {
+		return posto;
+	}
+	public void setPosto(Set<Posto> posto) {
+		this.posto = posto;
+	}
+	public Set<Hospital> getHospital() {
+		return hospital;
+	}
+	public void setHospital(Set<Hospital> hospital) {
+		this.hospital = hospital;
+	}
+	public String getAnaliseUrgencia() {
+		return analiseUrgencia;
+	}
+	public void setAnaliseUrgencia(String analiseUrgencia) {
+		this.analiseUrgencia = analiseUrgencia;
 	}
 	public String getEncaminhamento() {
 		return encaminhamento;
@@ -63,25 +66,36 @@ public class Enfermeira {
 	public void setEncaminhamento(String encaminhamento) {
 		this.encaminhamento = encaminhamento;
 	}
-	
-	
+	public NivelGravidade getNivelGravidade() {
+		return nivelGravidade;
+	}
+	public void setNivelGravidade(NivelGravidade nivelGravidade) {
+		this.nivelGravidade = nivelGravidade;
+	}
+	public Enfermeira(Long id_enf, Set<Posto> posto, Set<Hospital> hospital, String analiseUrgencia,
+			String encaminhamento, NivelGravidade nivelGravidade) {
+		super();
+		this.id_enf = id_enf;
+		this.posto = posto;
+		this.hospital = hospital;
+		this.analiseUrgencia = analiseUrgencia;
+		this.encaminhamento = encaminhamento;
+		this.nivelGravidade = nivelGravidade;
+	}
 	@Override
-	
 	public int hashCode() {
-		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((analiseUrgencia == null) ? 0 : analiseUrgencia.hashCode());
 		result = prime * result + ((encaminhamento == null) ? 0 : encaminhamento.hashCode());
-		result = prime * result + id_enf;
+		result = prime * result + ((hospital == null) ? 0 : hospital.hashCode());
+		result = prime * result + ((id_enf == null) ? 0 : id_enf.hashCode());
 		result = prime * result + ((nivelGravidade == null) ? 0 : nivelGravidade.hashCode());
+		result = prime * result + ((posto == null) ? 0 : posto.hashCode());
 		return result;
 	}
-	
 	@Override
-	
 	public boolean equals(Object obj) {
-		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -99,29 +113,28 @@ public class Enfermeira {
 				return false;
 		} else if (!encaminhamento.equals(other.encaminhamento))
 			return false;
-		if (id_enf != other.id_enf)
+		if (hospital == null) {
+			if (other.hospital != null)
+				return false;
+		} else if (!hospital.equals(other.hospital))
+			return false;
+		if (id_enf == null) {
+			if (other.id_enf != null)
+				return false;
+		} else if (!id_enf.equals(other.id_enf))
 			return false;
 		if (nivelGravidade == null) {
 			if (other.nivelGravidade != null)
 				return false;
 		} else if (!nivelGravidade.equals(other.nivelGravidade))
 			return false;
+		if (posto == null) {
+			if (other.posto != null)
+				return false;
+		} else if (!posto.equals(other.posto))
+			return false;
 		return true;
 	}
 	
-	@Override
+}	
 	
-	public String toString() {
-		
-		return "Enfermeira [id_enf=" + id_enf + ", analiseUrgencia=" + analiseUrgencia + ", encaminhamento="
-				+ encaminhamento + ", nivelGravidade=" + nivelGravidade + "]";
-	}
-
-	public NivelGravidade getNivelGravidade() {
-		return nivelGravidade;
-	}
-	public void setNivelGravidade(NivelGravidade nivelGravidade) {
-		this.nivelGravidade = nivelGravidade;
-	}
-	
-}

@@ -7,52 +7,26 @@ import javax.persistence.Id;
 public class Maternidade {
 	
 	@Id
-	private int id_mat;
-	
-	public int getId_mat() {
+	private Long id_mat;
+
+	public Long getId_mat() {
 		return id_mat;
 	}
 
-	public void setId_mat(int id_mat) {
+	public void setId_mat(Long id_mat) {
 		this.id_mat = id_mat;
 	}
 
-	private String partos;
-
-	public String getPartos() {
-		return partos;
-	}
-
-	public void setPartos(String partos) {
-		this.partos = partos;
-	}
-
 	@Override
-	
-	public String toString() {
-		
-		return "Maternidade [id_mat=" + id_mat + ", partos=" + partos + "]";
-	}
-
-	public Maternidade(String partos) {
-		super();
-		this.partos = partos;
-	}
-
-	@Override
-	
 	public int hashCode() {
-		
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((partos == null) ? 0 : partos.hashCode());
+		result = prime * result + ((id_mat == null) ? 0 : id_mat.hashCode());
 		return result;
 	}
 
 	@Override
-	
 	public boolean equals(Object obj) {
-		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -60,13 +34,22 @@ public class Maternidade {
 		if (getClass() != obj.getClass())
 			return false;
 		Maternidade other = (Maternidade) obj;
-		if (partos == null) {
-			if (other.partos != null)
+		if (id_mat == null) {
+			if (other.id_mat != null)
 				return false;
-		} else if (!partos.equals(other.partos))
+		} else if (!id_mat.equals(other.id_mat))
 			return false;
 		return true;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Maternidade [id_mat=" + id_mat + "]";
+	}
+
+	public Maternidade(Long id_mat) {
+		super();
+		this.id_mat = id_mat;
+	}
+	
 }

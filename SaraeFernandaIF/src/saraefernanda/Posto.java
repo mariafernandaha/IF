@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 public class Posto {
 	
 	@Id
-	private int id_pos;
+	private Long id_pos;
 	
 	private String tipoUrgencia;
 	private String especialidade;
@@ -21,37 +21,31 @@ public class Posto {
 			name = "pos_equ", 
 			joinColumns = @JoinColumn(name = "id_pos"), 
 			inverseJoinColumns = @JoinColumn(name = "id_equ"))
-	private Set<Equipamento> equipamentos ;
-	
-	public int getId_pos() {
-		return id_pos;
-	}
-	public void setId_pos(int id_pos) {
+	private Set<Equipamento> equipamentos;
+	public Posto(Long id_pos, String tipoUrgencia, String especialidade, Set<Equipamento> equipamentos) {
+		super();
 		this.id_pos = id_pos;
-	}
-	public Set<Equipamento> getEquipamentos() {
-		return equipamentos;
-	}
-	public void setEquipamentos(Set<Equipamento> equipamentos) {
+		this.tipoUrgencia = tipoUrgencia;
+		this.especialidade = especialidade;
 		this.equipamentos = equipamentos;
 	}
-
-	@Override 
-	
+	@Override
+	public String toString() {
+		return "Posto [id_pos=" + id_pos + ", tipoUrgencia=" + tipoUrgencia + ", especialidade=" + especialidade
+				+ ", equipamentos=" + equipamentos + "]";
+	}
+	@Override
 	public int hashCode() {
-		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((equipamentos == null) ? 0 : equipamentos.hashCode());
 		result = prime * result + ((especialidade == null) ? 0 : especialidade.hashCode());
-		result = prime * result + id_pos;
+		result = prime * result + ((id_pos == null) ? 0 : id_pos.hashCode());
 		result = prime * result + ((tipoUrgencia == null) ? 0 : tipoUrgencia.hashCode());
 		return result;
 	}
 	@Override
-	
 	public boolean equals(Object obj) {
-		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -69,7 +63,10 @@ public class Posto {
 				return false;
 		} else if (!especialidade.equals(other.especialidade))
 			return false;
-		if (id_pos != other.id_pos)
+		if (id_pos == null) {
+			if (other.id_pos != null)
+				return false;
+		} else if (!id_pos.equals(other.id_pos))
 			return false;
 		if (tipoUrgencia == null) {
 			if (other.tipoUrgencia != null)
@@ -78,19 +75,11 @@ public class Posto {
 			return false;
 		return true;
 	}
-	
-	public Posto(String tipoUrgencia, String especialidade) {
-		
-		super();
-		this.tipoUrgencia = tipoUrgencia;
-		this.especialidade = especialidade;
+	public Long getId_pos() {
+		return id_pos;
 	}
-	
-	@Override
-	
-	public String toString() {
-		
-		return "Posto [tipoUrgencia=" + tipoUrgencia + ", especialidade=" + especialidade + "]";
+	public void setId_pos(Long id_pos) {
+		this.id_pos = id_pos;
 	}
 	public String getTipoUrgencia() {
 		return tipoUrgencia;
@@ -104,6 +93,11 @@ public class Posto {
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
 	}
+	public Set<Equipamento> getEquipamentos() {
+		return equipamentos;
+	}
+	public void setEquipamentos(Set<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
+	}
 	
-
-}
+}	
