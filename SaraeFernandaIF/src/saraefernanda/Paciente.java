@@ -40,6 +40,9 @@ public class Paciente {
 		this.nome = nome;
 		this.endereco = endereco;
 	}
+	public Paciente() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	
 	public String toString() {
