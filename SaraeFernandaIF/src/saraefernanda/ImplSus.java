@@ -8,15 +8,15 @@ public interface ImplSus {
 	
 	public void removepaciente (String nome);
 	
-	public Posto addposto (String tipoUrgencia, String especialidade, ArrayList <Equipamento> equipamentos, NivelGravidade nivelGravidade, int id_pos);
+	public Posto addposto (String tipoUrgencia, String especialidade, ArrayList <Equipamento> equipamentos, int id_pos);
 	
 	public void removeposto (String tipoUrgencia, String especialidade);
 	
-	public Hospital addhospital (String tipoUrgencia, String especialidade, ArrayList <Equipamento> equipamentos, NivelGravidade nivelGravidade, int id_hos);
+	public Hospital addhospital (String tipoUrgencia, String especialidade, ArrayList <Equipamento> equipamentos, int id_hos);
 	
 	public void removehospital (String tipoUrgencia, String especialidade);
 	
-	public Enfermeira addenfermeira (String analiseUrgencia, String encaminhamento, NivelGravidade nivelGravidade, int id_gra);
+	public Enfermeira addenfermeira (String analiseUrgencia, String encaminhamento, int id_gra);
 	
 	public void removeenfermeira (String analiseUrgencia, String encaminhamento);
 	

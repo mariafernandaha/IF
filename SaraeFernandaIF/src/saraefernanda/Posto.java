@@ -22,6 +22,7 @@ public class Posto {
 			joinColumns = @JoinColumn(name = "id_pos"), 
 			inverseJoinColumns = @JoinColumn(name = "id_equ"))
 	private Set<Equipamento> equipamentos;
+	
 	public Posto(Long id_pos, String tipoUrgencia, String especialidade, Set<Equipamento> equipamentos) {
 		super();
 		this.id_pos = id_pos;

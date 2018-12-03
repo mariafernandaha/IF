@@ -1,11 +1,11 @@
 package saraefernanda;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Equipamento {
@@ -16,13 +16,11 @@ public class Equipamento {
 	private String medicamentos;
 	private String curativos;
 	
-	@ManyToOne
-	@JoinColumn(name="id_equipamentos")
-	private ArrayList <Hospital> equipamentos;
-	
-	@ManyToOne
-	@JoinColumn(name="id_equipamentos")
-	private ArrayList <Posto> equipamentos1;
+	@OneToOne
+	@JoinColumn(name="id_hospital")
+	private Hospital hospital;
+
+
 
 	public Long getId_equ() {
 		return id_equ;
@@ -48,29 +46,12 @@ public class Equipamento {
 		this.curativos = curativos;
 	}
 
-	public ArrayList<Hospital> getEquipamentos() {
-		return equipamentos;
-	}
-
-	public void setEquipamentos(ArrayList<Hospital> equipamentos) {
-		this.equipamentos = equipamentos;
-	}
-
-	public ArrayList<Posto> getEquipamentos1() {
-		return equipamentos1;
-	}
-
-	public void setEquipamentos1(ArrayList<Posto> equipamentos1) {
-		this.equipamentos1 = equipamentos1;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((curativos == null) ? 0 : curativos.hashCode());
-		result = prime * result + ((equipamentos == null) ? 0 : equipamentos.hashCode());
-		result = prime * result + ((equipamentos1 == null) ? 0 : equipamentos1.hashCode());
+		result = prime * result + ((hospital == null) ? 0 : hospital.hashCode());
 		result = prime * result + ((id_equ == null) ? 0 : id_equ.hashCode());
 		result = prime * result + ((medicamentos == null) ? 0 : medicamentos.hashCode());
 		return result;
@@ -90,15 +71,10 @@ public class Equipamento {
 				return false;
 		} else if (!curativos.equals(other.curativos))
 			return false;
-		if (equipamentos == null) {
-			if (other.equipamentos != null)
+		if (hospital == null) {
+			if (other.hospital != null)
 				return false;
-		} else if (!equipamentos.equals(other.equipamentos))
-			return false;
-		if (equipamentos1 == null) {
-			if (other.equipamentos1 != null)
-				return false;
-		} else if (!equipamentos1.equals(other.equipamentos1))
+		} else if (!hospital.equals(other.hospital))
 			return false;
 		if (id_equ == null) {
 			if (other.id_equ != null)
@@ -116,17 +92,16 @@ public class Equipamento {
 	@Override
 	public String toString() {
 		return "Equipamento [id_equ=" + id_equ + ", medicamentos=" + medicamentos + ", curativos=" + curativos
-				+ ", equipamentos=" + equipamentos + ", equipamentos1=" + equipamentos1 + "]";
+				+ ", hospital=" + hospital + ", posto="+ "]";
 	}
 
-	public Equipamento(Long id_equ, String medicamentos, String curativos, ArrayList<Hospital> equipamentos,
-			ArrayList<Posto> equipamentos1) {
+	public Equipamento(Long id_equ, String medicamentos, String curativos, Hospital hospital, Set<Posto> posto) {
 		super();
 		this.id_equ = id_equ;
 		this.medicamentos = medicamentos;
 		this.curativos = curativos;
-		this.equipamentos = equipamentos;
-		this.equipamentos1 = equipamentos1;
+		this.hospital = hospital;
 	}
 
-}	
+	
+}
