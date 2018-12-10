@@ -23,6 +23,13 @@ public class Posto {
 			inverseJoinColumns = @JoinColumn(name = "id_equ"))
 	private Set<Equipamento> equipamentos;
 	
+	@ManyToMany()
+	@JoinTable(
+			name = "pos_ate", 
+			joinColumns = @JoinColumn(name = "id_pos"), 
+			inverseJoinColumns = @JoinColumn(name = "id_ate"))
+	private Set<Atendimento> atendimentos;
+	
 	public Posto(Long id_pos, String tipoUrgencia, String especialidade, Set<Equipamento> equipamentos) {
 		super();
 		this.id_pos = id_pos;
@@ -30,6 +37,7 @@ public class Posto {
 		this.especialidade = especialidade;
 		this.equipamentos = equipamentos;
 	}
+
 	@Override
 	public String toString() {
 		return "Posto [id_pos=" + id_pos + ", tipoUrgencia=" + tipoUrgencia + ", especialidade=" + especialidade

@@ -2,31 +2,51 @@ package saraefernanda;
 
 import java.util.ArrayList;
 
-public interface ImplSus {
+public class ImplSus implements Sus  {
+
+	@Override
+	public Paciente cadastrarpaciente(String nome, String endereco, Integer cpf, int nSus, int id_pac) throws CPFInvalidoException {
+		Paciente paciente = new Paciente();
+		if(cpf == null) {
+			throw new CPFInvalidoException();
+		}
+		return null;
+	}
+
+	@Override
+	public void removepaciente(String nome) {
+		
+	}
+
+	@Override
+	public Posto cadastrarposto(String tipoUrgencia, String especialidade, ArrayList<Equipamento> equipamentos, int id_pos) throws TIPOURGENCIAInvalidoException{
+		Posto posto = new Posto(null, especialidade, especialidade, null);
+		if( tipoUrgencia == null) {
+			throw new TIPOURGENCIAInvalidoException();
+		}
+		return null;
+		
+	}
 	
-	public Paciente addpaciente (String nome, String endereco,int cpf, int nSus, int id_pac);
-	
-	public void removepaciente (String nome);
-	
-	public Posto addposto (String tipoUrgencia, String especialidade, ArrayList <Equipamento> equipamentos, int id_pos);
-	
-	public void removeposto (String tipoUrgencia, String especialidade);
-	
-	public Hospital addhospital (String tipoUrgencia, String especialidade, ArrayList <Equipamento> equipamentos, int id_hos);
-	
-	public void removehospital (String tipoUrgencia, String especialidade);
-	
-	public Enfermeira addenfermeira (String analiseUrgencia, String encaminhamento, int id_gra);
-	
-	public void removeenfermeira (String analiseUrgencia, String encaminhamento);
-	
-	public Laboratorio addlaboratorio (String exames, int id_lab);
-	
-	public void removelaboratorio (String exames);
-	
-	public Maternidade addmaternidade (String partos, int id_mat);
-	
-	public void removematernidade (String partos);
-	
-	
+	@Override
+	public void removeposto(String tipoUrgencia, String especialidade) {
+		
+	}
+
+	@Override
+	public Hospital cadastrarhospital(String tipoUrgencia, String especialidade, ArrayList<Equipamento> equipamentos, int id_hos) throws TIPOURGENCIAInvalidoException{
+		Hospital hospital = new Hospital();
+		if( tipoUrgencia == null) {
+			throw new TIPOURGENCIAInvalidoException();
+		}
+		return null;
+		
+	} 
+
+	@Override
+	public void removehospital(String tipoUrgencia, String especialidade) {
+
+	}
+
+
 }

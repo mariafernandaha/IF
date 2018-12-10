@@ -4,8 +4,7 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Equipamento {
@@ -16,12 +15,6 @@ public class Equipamento {
 	private String medicamentos;
 	private String curativos;
 	
-	@OneToOne
-	@JoinColumn(name="id_hospital")
-	private Hospital hospital;
-
-
-
 	public Long getId_equ() {
 		return id_equ;
 	}
@@ -51,7 +44,6 @@ public class Equipamento {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((curativos == null) ? 0 : curativos.hashCode());
-		result = prime * result + ((hospital == null) ? 0 : hospital.hashCode());
 		result = prime * result + ((id_equ == null) ? 0 : id_equ.hashCode());
 		result = prime * result + ((medicamentos == null) ? 0 : medicamentos.hashCode());
 		return result;
@@ -71,11 +63,6 @@ public class Equipamento {
 				return false;
 		} else if (!curativos.equals(other.curativos))
 			return false;
-		if (hospital == null) {
-			if (other.hospital != null)
-				return false;
-		} else if (!hospital.equals(other.hospital))
-			return false;
 		if (id_equ == null) {
 			if (other.id_equ != null)
 				return false;
@@ -92,7 +79,7 @@ public class Equipamento {
 	@Override
 	public String toString() {
 		return "Equipamento [id_equ=" + id_equ + ", medicamentos=" + medicamentos + ", curativos=" + curativos
-				+ ", hospital=" + hospital + ", posto="+ "]";
+				+ ", posto="+ "]";
 	}
 
 	public Equipamento(Long id_equ, String medicamentos, String curativos, Hospital hospital, Set<Posto> posto) {
@@ -100,7 +87,7 @@ public class Equipamento {
 		this.id_equ = id_equ;
 		this.medicamentos = medicamentos;
 		this.curativos = curativos;
-		this.hospital = hospital;
+
 	}
 
 	

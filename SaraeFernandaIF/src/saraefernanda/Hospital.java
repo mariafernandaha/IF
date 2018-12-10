@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -21,6 +23,20 @@ public class Hospital {
 	@OneToMany
 	@JoinColumn(name="id_laboratorio")
 	private Set<Laboratorio> laboratorios;
+	
+	@ManyToMany()
+	@JoinTable(
+			name = "hos_equ", 
+			joinColumns = @JoinColumn(name = "id_hos"), 
+			inverseJoinColumns = @JoinColumn(name = "id_equ"))
+	private Set<Equipamento> equipamentos;
+		
+	@ManyToMany()
+	@JoinTable(
+			name = "hos_ate", 
+			joinColumns = @JoinColumn(name = "id_hos"), 
+			inverseJoinColumns = @JoinColumn(name = "id_ate"))
+	private Set<Atendimento> atendimentos;
 	
 	private String tipoUrgencia;
 	private String especialidade;
