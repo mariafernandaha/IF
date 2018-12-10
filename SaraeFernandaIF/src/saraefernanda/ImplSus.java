@@ -48,5 +48,4 @@ public class ImplSus implements Sus  {
 
 	}
 
-
 }
